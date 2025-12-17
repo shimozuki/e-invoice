@@ -1,4 +1,3 @@
-
 <nav
     class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
     id="layout-navbar" style="z-index: 100 !important">
@@ -12,15 +11,6 @@
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
-            <li class="nav-item lh-1 me-3">
-                <a
-                    class="github-button"
-                    href="https://github.com/404NotFoundIndonesia/laravel-11-sneat-template"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star 404NotFoundIndonesia/laravel-11-sneat-template on GitHub">Star</a>
-            </li>
 
             <!-- Language -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
