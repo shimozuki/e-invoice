@@ -17,7 +17,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $items = Customer::latest()->paginate(10);
+        $items = Customer::select('id', 'nama_toko', 'kota', 'telepon', 'alamat', 'email', 'nama_pemilik', 'created_at')
+            ->orderByDesc('id')
+            ->paginate(10);
 
         return view('pages.customer.index', compact('items'));
     }

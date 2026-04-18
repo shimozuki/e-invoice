@@ -20,8 +20,8 @@
                 <tr>
                     <th>{{ __('field.nama_toko') }}</th>
                     <th>{{ __('field.nama_pemilik') }}</th>
+                    <th>{{ __('field.email') }}</th>
                     <th>{{ __('field.telepon') }}</th>
-                    <th>{{ __('field.email  ') }}</th>
                     <th>{{ __('field.kota') }}</th>
                     <th>{{ __('field.alamat')}}</th>
                     <th style="width: 50px"></th>
