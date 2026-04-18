@@ -30,4 +30,5 @@ return [
     'profile' => 'Profil',
     'change_password' => 'Ubah Password',
     'activity_log' => 'Log Aktivitas',
+    'financial_report' => 'Laporan Keuangan'
 ];

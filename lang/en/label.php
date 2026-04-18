@@ -43,4 +43,5 @@ return [
     'resource_customer' => 'Customer Management',
     'resource_invoice' => 'Invoice Management',
     'search_invoice' => 'Search Invoices',
+    'resource_Report' => 'Financial Report'
 ];

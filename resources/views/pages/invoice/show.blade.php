@@ -29,12 +29,12 @@
                     </tr>
                     <tr>
                         <td>Kepada Yth</td>
-                        <td><strong>{{ $invoice->customer->nama_toko }}</strong></td>
+                        <td><strong>{{ $invoice->pengirim }}</strong></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>Alamat</td>
                         <td>{{ $invoice->customer->alamat }}</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
 
@@ -93,6 +93,7 @@
         {{-- ================= TOTAL & STATUS ================= --}}
         <div class="row mb-4">
             <div class="col-md-6 small">
+                <th><strong>Pengirim:</strong> {{ $invoice->customer->nama_toko}}</th>
                 <ol class="ps-3 mb-2">
                     <li>Barang dikembalikan bila ongkos tidak dibayar penerima.</li>
                     <li>Barang pecah belah & cair bukan tanggung jawab kami.</li>

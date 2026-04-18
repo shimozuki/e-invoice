@@ -147,12 +147,12 @@
                     </tr>
                     <tr>
                         <td class="label">Kepada</td>
-                        <td>: {{ $invoice->customer->nama_toko }}</td>
+                        <td>: {{ $invoice->pengirim }}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="label">Alamat</td>
                         <td>: {{ $invoice->customer->alamat }}</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </td>
 
@@ -224,6 +224,7 @@
 
     {{-- FOOTER --}}
     <div class="footer">
+        <strong>Pengirim:</strong> {{ $invoice->customer->nama_toko}}
         <ol>
             <li>Bila ongkos pengangkutan tidak dibayar oleh penerima, barang akan dikembalikan ke pengirim.</li>
             <li>Barang pecah belah, cair, tekstil, dsb bukan tanggung jawab kami.</li>

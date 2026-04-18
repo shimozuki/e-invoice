@@ -3,28 +3,20 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between">
-        <h5>{{ __('menu.invoice') }}</h5>
-        <div>
-            @can('create_invoice')
-            <a href="{{ route('invoice.create') }}"
-                class="btn btn-primary">
-                {{ __('button.new_feature', ['feature' => __('menu.invoice')]) }}
-            </a>
-            @endcan
-        </div>
+        <h5>{{ __('menu.financial_report') }}</h5>
     </div>
 
     <div class="card-body border-bottom">
         <form method="GET" class="row g-3 align-items-end">
 
             {{-- SEARCH --}}
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <label class="form-label">{{ __('label.search') }}</label>
                 <input
                     type="text"
                     name="q"
                     class="form-control"
-                    placeholder="{{ __('label.search_invoice') }}"
+                    placeholder="Search invoice / customer"
                     value="{{ request('q') }}">
             </div>
 
@@ -48,16 +40,33 @@
                     value="{{ request('end_date') }}">
             </div>
 
+            {{-- STATUS --}}
+            <div class="col-md-2">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-control">
+                    <option value="">All</option>
+                    <option value="lunas" {{ request('status')=='lunas'?'selected':'' }}>Paid</option>
+                    <option value="belum_lunas" {{ request('status')=='belum_lunas'?'selected':'' }}>Unpaid</option>
+                </select>
+            </div>
+
             {{-- BUTTON --}}
-            <div class="col-md-4 d-flex gap-2">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('button.filter') }}
+            <div class="col-md-3 d-flex gap-2">
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Filter
                 </button>
 
-                <a href="{{ route('invoice.index') }}"
-                    class="btn btn-outline-secondary">
-                    {{ __('button.reset') }}
+                <a href="{{ route('laporan.index') }}"
+                    class="btn btn-outline-secondary w-100">
+                    Reset
                 </a>
+
+                <a href="{{ route('laporan.export', request()->query()) }}"
+                    class="btn btn-success w-100">
+                    Export
+                </a>
+
             </div>
 
         </form>
@@ -65,7 +74,7 @@
 
 
     <div class="table-responsive text-nowrap">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>{{ __('field.invoice_number') }}</th>
@@ -73,12 +82,12 @@
                     <th>{{ __('field.customer') }}</th>
                     <th>{{ __('field.kota_tujuan') }}</th>
                     <th>{{ __('field.total') }}</th>
-                    <th style="width: 50px"></th>
+                    <th>Status</th>
                 </tr>
             </thead>
 
-            <tbody class="table-border-bottom-0">
-                @foreach($items as $item)
+            <tbody>
+                @forelse($items as $item)
                 <tr>
                     <td>
                         <a href="{{ route('invoice.show', $item->id) }}">
@@ -103,41 +112,20 @@
                     </td>
 
                     <td>
-                        @canany(['edit_invoice', 'delete_invoice'])
-                        <div class="dropdown">
-                            <button type="button"
-                                class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-
-                            <div class="dropdown-menu">
-                                @can('edit_invoice')
-                                <a class="dropdown-item"
-                                    href="{{ route('invoice.edit', $item->id) }}">
-                                    <i class="bx bx-edit-alt me-1"></i>
-                                    {{ __('button.edit') }}
-                                </a>
-                                @endcan
-
-                                @can('delete_invoice')
-                                <form action="{{ route('invoice.destroy', $item->id) }}"
-                                    method="POST"
-                                    class="delete-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="dropdown-item" type="submit">
-                                        <i class="bx bx-trash me-1"></i>
-                                        {{ __('button.delete') }}
-                                    </button>
-                                </form>
-                                @endcan
-                            </div>
-                        </div>
-                        @endcanany
+                        @if($item->status_pembayaran == 'lunas')
+                        <span class="badge bg-success">Lunas</span>
+                        @else
+                        <span class="badge bg-danger">Belum Lunas</span>
+                        @endif
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        Tidak ada data
+                    </td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

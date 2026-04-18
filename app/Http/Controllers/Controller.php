@@ -107,6 +107,13 @@ abstract class Controller
                     ],
                 ],
             ],
+            [
+                'name' => __('menu.financial_report'),
+                'icon' => 'bx-bar-chart',
+                'url' => route('laporan.index'),
+                'active' => Route::is('laporan.*'),
+                'available' => $user->can('view_report'),
+            ],
         ]);
     }
 

@@ -17,6 +17,7 @@ class Invoice extends Model
         'invoice_number',
         'tanggal',
         'customer_id',
+        'pengirim',
         'kota_asal',
         'kota_tujuan',
         'supir',

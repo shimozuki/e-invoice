@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -74,7 +75,16 @@ Route::middleware(['locale'])->group(function () {
             [InvoiceController::class, 'downloadPdf']
         )->name('invoice.pdf')
             ->middleware('can:download_invoice');
+
+        Route::get('/laporan', [LaporanController::class, 'index'])
+            ->name('laporan.index')
+            ->can('view_report');
+
+        Route::get('/laporan/export', [LaporanController::class, 'export'])
+            ->name('laporan.export')
+            ->middleware('can:export_report');
     });
+
 
     Route::middleware('auth')->group(function () {
         Route::post('/invoice/{invoice}/send', [InvoiceController::class, 'send'])

@@ -8,4 +8,5 @@ enum PermissionResource: string
     case ROLE = 'role';
     case CUSTOMER = 'customer';
     case INVOICE  = 'invoice';
+    case REPORT = 'report';
 }

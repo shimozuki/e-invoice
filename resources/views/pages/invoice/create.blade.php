@@ -31,6 +31,9 @@
                     :options="$customers->pluck('nama_toko', 'id')" />
             </div>
             <div class="col-md-6 mb-3">
+                <x-forms.input name="pengirim" />
+            </div>
+            <div class="col-md-6 mb-3">
                 <x-forms.input name="kota_asal" />
             </div>
             <div class="col-md-6 mb-3">

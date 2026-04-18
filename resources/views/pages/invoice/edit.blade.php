@@ -38,7 +38,11 @@
                     :options="$customers->pluck('nama_toko', 'id')"
                     :value="$invoice->customer_id" />
             </div>
-
+            <div class="col-md-6 mb-3">
+                <x-forms.input
+                    name="pengirim"
+                    :value="$invoice->pengirim" />
+            </div>
             <div class="col-md-6 mb-3">
                 <x-forms.input
                     name="kota_asal"
@@ -113,46 +117,49 @@
 @endsection
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-    // ⬇️ START DARI JUMLAH ITEM YANG ADA
-    let index = {{ $invoice->items->count() }};
+        // ⬇️ START DARI JUMLAH ITEM YANG ADA
+        let index = {
+            {
+                $invoice - > items - > count()
+            }
+        };
 
-    window.hitung = function(row) {
-        if (!row) return;
+        window.hitung = function(row) {
+            if (!row) return;
 
-        const berat = parseFloat(row.querySelector('.berat')?.value) || 0;
-        const ongkos = parseFloat(row.querySelector('.ongkos')?.value) || 0;
-        const total = berat * ongkos;
+            const berat = parseFloat(row.querySelector('.berat')?.value) || 0;
+            const ongkos = parseFloat(row.querySelector('.ongkos')?.value) || 0;
+            const total = berat * ongkos;
 
-        row.querySelector('.total-text').innerText =
-            new Intl.NumberFormat('id-ID').format(total);
+            row.querySelector('.total-text').innerText =
+                new Intl.NumberFormat('id-ID').format(total);
 
-        row.querySelector('.total-value').value = total;
+            row.querySelector('.total-value').value = total;
 
-        hitungGrandTotal();
-    };
+            hitungGrandTotal();
+        };
 
-    window.hitungGrandTotal = function() {
-        let total = 0;
-        document.querySelectorAll('.total-value').forEach(el => {
-            total += parseFloat(el.value) || 0;
+        window.hitungGrandTotal = function() {
+            let total = 0;
+            document.querySelectorAll('.total-value').forEach(el => {
+                total += parseFloat(el.value) || 0;
+            });
+
+            document.getElementById('grandTotal').innerText =
+                'Rp ' + new Intl.NumberFormat('id-ID').format(total);
+        };
+
+        document.getElementById('addRow').addEventListener('click', () => {
+            fetch("{{ route('invoice.item.row') }}?index=" + index)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector('#itemsTable tbody')
+                        .insertAdjacentHTML('beforeend', html);
+                    index++;
+                });
         });
 
-        document.getElementById('grandTotal').innerText =
-            'Rp ' + new Intl.NumberFormat('id-ID').format(total);
-    };
-
-    document.getElementById('addRow').addEventListener('click', () => {
-        fetch("{{ route('invoice.item.row') }}?index=" + index)
-            .then(res => res.text())
-            .then(html => {
-                document.querySelector('#itemsTable tbody')
-                    .insertAdjacentHTML('beforeend', html);
-                index++;
-            });
     });
-
-});
 </script>
-

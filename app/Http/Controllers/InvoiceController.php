@@ -81,6 +81,7 @@ class InvoiceController extends Controller
             'kota_tujuan'  => ['required', 'string', 'max:100'],
             'supir'        => ['nullable', 'string', 'max:100'],
             'no_polisi'    => ['nullable', 'string', 'max:20'],
+            'pengirim'     => ['required', 'string', 'max:100'],
 
             'items' => ['required', 'array', 'min:1'],
             'items.*.coli' => ['nullable', 'integer', 'min:0'],
@@ -96,6 +97,7 @@ class InvoiceController extends Controller
                 'invoice_number' => $this->generateInvoiceNumber(),
                 'tanggal'        => $validated['tanggal'],
                 'customer_id'    => $validated['customer_id'],
+                'pengirim'       => $validated['pengirim'],
                 'kota_asal'      => $validated['kota_asal'],
                 'kota_tujuan'    => $validated['kota_tujuan'],
                 'supir'          => $validated['supir'] ?? null,
@@ -171,6 +173,7 @@ class InvoiceController extends Controller
             'kota_tujuan' => ['required', 'string', 'max:100'],
             'supir' => ['nullable', 'string', 'max:100'],
             'no_polisi' => ['nullable', 'string', 'max:20'],
+            'pengirim' => ['nullable', 'string', 'max:255'],
 
             'items' => ['required', 'array'],
             'items.*.jenis_barang' => ['required', 'string'],
@@ -190,6 +193,7 @@ class InvoiceController extends Controller
                 'kota_tujuan' => $request->kota_tujuan,
                 'supir' => $request->supir,
                 'no_polisi' => $request->no_polisi,
+                'pengirim' => $request->pengirim,
             ]);
 
             $totalInvoice = 0;

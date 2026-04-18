@@ -30,4 +30,5 @@ return [
     'profile' => 'Profile',
     'change_password' => 'Change Password',
     'activity_log' => 'Activity Log',
+    'financial_report' => 'Financial Report'
 ];

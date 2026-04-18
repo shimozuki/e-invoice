@@ -37,11 +37,14 @@ return [
     // Invoices
     'invoice_number' => 'No Invoice',
     'tanggal' => 'Tanggal',
-    'customer' => 'Customer',
-    'customer_id' => 'Customer',
+    'customer' => 'Pengirim',
+    'customer_id' => 'Pengirim',
     'kota_asal' => 'Kota Asal',
     'kota_tujuan' => 'Kota Tujuan',
     'supir' => 'Supir',
     'no_polisi' => 'No Polisi',
     'total' => 'Total',
+    'start_date' => 'Tanggal Mulai',
+    'end_date' => 'Tanggal Selesai',
+    'pengirim' => 'Penerima'
 ];

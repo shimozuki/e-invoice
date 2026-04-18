@@ -37,12 +37,15 @@ return [
     // Invoices
     'invoice_number' => 'Invoice Number',
     'tanggal' => 'Date',
-    'customer' => 'Customer',
-    'customer_id' => 'Customer',
+    'customer' => 'Sender',
+    'customer_id' => 'Sender',
     'kota_asal' => 'Origin City',
     'kota_tujuan' => 'Destination City',
     'supir' => 'Driver',
     'no_polisi' => 'License Plate',
     'total' => 'Total',
     'filter' => 'Filter',
+    'start_date' => 'Start Date',
+    'end_date' => 'End Date',
+    'pengirim' => 'Recipient'
 ];
