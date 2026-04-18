@@ -23,4 +23,5 @@ return [
     'invoice_from_sby' => 'Total pegawai Surabaya',
 
     'invoice_statistics' => 'Statistik Invoice',
+    'invoice_paid_percentage' => 'Grafik Invoice Lunas'
 ];

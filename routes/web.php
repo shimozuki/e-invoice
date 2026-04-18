@@ -21,7 +21,13 @@ Route::get('/test-email', function () {
 
 Route::middleware(['locale'])->group(function () {
 
-    Route::get('/', [PageController::class, 'welcome'])->name('welcome');
+    Route::get('/', function () {
+        if (auth()->check()) {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('login');
+    });
 
     Route::middleware(['auth'])->group(function () {
 

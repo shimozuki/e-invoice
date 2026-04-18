@@ -22,4 +22,5 @@ return [
     'invoice_from_sby' => 'Invoices from Surabaya branch',
 
     'invoice_statistics' => 'Invoice Statistics',
+    'invoice_paid_percentage' => 'Invoice paid percentage'
 ];
