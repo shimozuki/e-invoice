@@ -13,7 +13,7 @@ class Role extends \Spatie\Permission\Models\Role
     public function scopeSearch(Builder $query, ?string $search)
     {
         return $query->when($search, function (Builder $query, string $search) {
-            return $query->where('name', 'LIKE', $search.'%');
+            return $query->where('name', 'LIKE', $search . '%');
         });
     }
 
@@ -31,7 +31,7 @@ class Role extends \Spatie\Permission\Models\Role
             ])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs()
-            ->setDescriptionForEvent(fn (string $eventName) => match ($eventName) {
+            ->setDescriptionForEvent(fn(string $eventName) => match ($eventName) {
                 'created' => __('activity.created', [
                     'menu' => __('menu.role'),
                     'identifier' => $this->name,

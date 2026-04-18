@@ -7,6 +7,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogActivityController;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -58,11 +59,10 @@ Route::middleware(['locale'])->group(function () {
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
             Route::get('/change-password', [PasswordController::class, 'edit'])->name('password.edit');
             Route::get('/change-language', [PageController::class, 'locale'])->name('locale');
-
-            Route::get('/activity-log', [\App\Http\Controllers\ActivityLogController::class, 'index'])->name('log.index');
-            Route::delete('/activity-log', [\App\Http\Controllers\ActivityLogController::class, 'destroyBulk'])->name('log.destroy.bulk');
-            Route::delete('/activity-log/{log}', [\App\Http\Controllers\ActivityLogController::class, 'destroy'])->name('log.destroy');
         });
+
+        Route::get('/log-activity', [LogActivityController::class, 'index'])
+            ->name('log.activity');
 
         Route::resource('customer', CustomerController::class);
         Route::resource('invoice', InvoiceController::class);

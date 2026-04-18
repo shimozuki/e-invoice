@@ -60,12 +60,7 @@
                             <span class="align-middle">{{ __('menu.account') }}</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('account.log.index') }}">
-                            <i class="bx bx-history me-2"></i>
-                            <span class="align-middle">{{ __('menu.activity_log') }}</span>
-                        </a>
-                    </li>
+
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>

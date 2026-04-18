@@ -47,5 +47,12 @@ return [
     'filter' => 'Filter',
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
-    'pengirim' => 'Recipient'
+    'pengirim' => 'Recipient',
+    'user' => 'User',
+    'action' => 'Action',
+    'url' => 'URL',
+    'ip' => 'IP Address',
+    'browser' => 'Browser',
+    'os' => 'Operating System',
+    'penerima' => 'Recipient'
 ];

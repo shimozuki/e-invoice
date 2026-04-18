@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Binafy\LaravelUserMonitoring\Traits\Actionable;
 
 class Customer extends Model
 {
+    use Actionable;
+
     protected $table = 'customers';
 
     protected $primaryKey = 'id';

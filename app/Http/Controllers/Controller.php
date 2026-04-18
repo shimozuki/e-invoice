@@ -99,12 +99,6 @@ abstract class Controller
                         'active' => Route::is('account.password.edit'),
                         'available' => true,
                     ],
-                    [
-                        'url' => route('account.log.index'),
-                        'name' => __('menu.activity_log'),
-                        'active' => Route::is('account.log.index'),
-                        'available' => true,
-                    ],
                 ],
             ],
             [
@@ -113,6 +107,13 @@ abstract class Controller
                 'url' => route('laporan.index'),
                 'active' => Route::is('laporan.*'),
                 'available' => $user->can('view_report'),
+            ],
+            [
+                'name' => 'Log Aktivitas',
+                'icon' => 'bx-history',
+                'url' => route('log.activity'),
+                'active' => Route::is('log.activity'),
+                'available' => $user->can('view_log_activity'),
             ],
         ]);
     }

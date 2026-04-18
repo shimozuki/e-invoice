@@ -9,4 +9,5 @@ return [
     'fail_create' => 'Fail to create new :menu!',
     'fail_update' => 'Fail to update the :menu!',
     'fail_delete' => 'Fail to delete the :menu!',
+    'update_success' => 'Successfully changed the Invoice',
 ];

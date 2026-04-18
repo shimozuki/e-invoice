@@ -43,5 +43,6 @@ return [
     'resource_customer' => 'Manajemen Customer',
     'resource_invoice' => 'Manajemen Invoice',
     'search_invoice' => 'Cari Invoices',
-    'resource_report' => 'Laporan Keuangan'
+    'resource_report' => 'Laporan Keuangan',
+    'resource_log_activity' => 'Log Aktivitas'
 ];

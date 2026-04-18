@@ -9,4 +9,5 @@ return [
     'fail_create' => 'Gagal membuat :menu baru!',
     'fail_update' => 'Gagal mengedit :menu!',
     'fail_delete' => 'Gagal menghapus :menu!',
+    'update_success' => 'Berhasil Menganti Invoice',
 ];

@@ -57,14 +57,14 @@ class User extends Authenticatable
     public function avatarUrl(): Attribute
     {
         return new Attribute(
-            get: fn () => 'https://ui-avatars.com/api/?name='.$this->name,
+            get: fn() => 'https://ui-avatars.com/api/?name=' . $this->name,
         );
     }
 
     public function scopeSearch(Builder $query, ?string $search)
     {
         return $query->when($search, function (Builder $query, string $search) {
-            return $query->where('name', 'LIKE', $search.'%');
+            return $query->where('name', 'LIKE', $search . '%');
         });
     }
 

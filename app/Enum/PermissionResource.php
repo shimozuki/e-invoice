@@ -9,4 +9,5 @@ enum PermissionResource: string
     case CUSTOMER = 'customer';
     case INVOICE  = 'invoice';
     case REPORT = 'report';
+    case LOG_ACTIVITY = 'log_activity';
 }

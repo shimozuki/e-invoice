@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b291e9f275210642fa4d05ab45a1c64",
+    "content-hash": "20140fb48563c2c2e3709b1555c21f2d",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -82,6 +82,82 @@
                 }
             ],
             "time": "2025-02-13T15:07:54+00:00"
+        },
+        {
+            "name": "binafy/laravel-user-monitoring",
+            "version": "v1.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/binafy/laravel-user-monitoring.git",
+                "reference": "4f57880e4040f36488176aef484b91468f02c54a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/binafy/laravel-user-monitoring/zipball/4f57880e4040f36488176aef484b91468f02c54a",
+                "reference": "4f57880e4040f36488176aef484b91468f02c54a",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+                "pestphp/pest-plugin-laravel": "^1.4.0|^2.0.0|^3.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Binafy\\LaravelUserMonitoring\\Providers\\LaravelUserMonitoringServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Binafy\\LaravelUserMonitoring\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milwad Khosravi",
+                    "email": "milwad.dev@gmail.com",
+                    "homepage": "https://github.com/milwad-dev",
+                    "role": "author"
+                },
+                {
+                    "name": "Binafy",
+                    "homepage": "https://github.com/binafy",
+                    "role": "owner"
+                }
+            ],
+            "description": "Monitor your user and all activity on your application",
+            "homepage": "https://github.com/binafy/laravel-user-monitoring",
+            "keywords": [
+                "analysis",
+                "binafy",
+                "framework",
+                "laravel",
+                "laravel middleware",
+                "laravel package",
+                "laravel tracking",
+                "laravel user monitoring",
+                "laravel user monitoring package",
+                "laravel-monitoring",
+                "laravel-tracking",
+                "milwad",
+                "monitoring",
+                "tracking"
+            ],
+            "support": {
+                "issues": "https://github.com/binafy/laravel-user-monitoring/issues",
+                "source": "https://github.com/binafy/laravel-user-monitoring/tree/v1.2.5"
+            },
+            "time": "2025-09-10T12:51:30+00:00"
         },
         {
             "name": "brick/math",

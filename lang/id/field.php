@@ -46,5 +46,12 @@ return [
     'total' => 'Total',
     'start_date' => 'Tanggal Mulai',
     'end_date' => 'Tanggal Selesai',
-    'pengirim' => 'Penerima'
+    'pengirim' => 'Penerima',
+    'user' => 'User',
+    'action' => 'Aksi',
+    'browser' => 'Browser',
+    'ip' => 'IP Address',
+    'os' => 'Sistem Operasi',
+    'url' => 'URL',
+    'penerima' => 'Penerima'
 ];

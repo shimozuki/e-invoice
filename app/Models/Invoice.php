@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Binafy\LaravelUserMonitoring\Traits\Actionable;
 
 class Invoice extends Model
 {
+    use Actionable;
+
     protected $table = 'invoices';
 
     protected $primaryKey = 'id';
@@ -35,6 +38,22 @@ class Invoice extends Model
             if (empty($model->{$model->getKeyName()})) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
+        });
+    }
+
+    protected static function booted()
+    {
+        static::updated(function ($model) {
+            \Binafy\LaravelUserMonitoring\Models\ActionMonitoring::create([
+                'user_id' => auth()->id(),
+                'action_type' => 'update',
+                'table_name' => $model->getTable(),
+                'browser_name' => request()->header('User-Agent'),
+                'platform' => php_uname(),
+                'device' => php_uname(),
+                'ip' => request()->ip(),
+                'page' => request()->fullUrl(),
+            ]);
         });
     }
 

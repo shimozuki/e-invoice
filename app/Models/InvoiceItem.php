@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Binafy\LaravelUserMonitoring\Traits\Actionable;
 
 class InvoiceItem extends Model
 {
-    use HasUuids;
+    use HasUuids, Actionable;
 
     protected $table = 'invoice_items';
 

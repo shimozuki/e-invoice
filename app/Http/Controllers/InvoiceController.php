@@ -19,13 +19,14 @@ class InvoiceController extends Controller
         parent::__construct();
     }
 
+
     /**
      * List invoice
      */
 
     public function index(Request $request)
     {
-        $query = Invoice::with('customer');
+        $query = Invoice::with('customer')->select('id', 'invoice_number', 'tanggal', 'customer_id', 'kota_tujuan', 'created_at', 'pengirim', 'total');
 
         // 🔍 SEARCH
         if ($request->filled('q')) {
@@ -54,6 +55,11 @@ class InvoiceController extends Controller
             ->latest()
             ->paginate(10)
             ->withQueryString(); // penting
+
+        // echo '<pre>';
+        // print_r($items);
+        // echo '</pre>';
+
 
         return view('pages.invoice.index', compact('items'));
     }
@@ -241,7 +247,20 @@ class InvoiceController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
+        $invoiceId = $invoice->id;
+
         $invoice->delete();
+
+        \Binafy\LaravelUserMonitoring\Models\ActionMonitoring::create([
+            'user_id' => auth()->id(),
+            'action_type' => 'delete',
+            'table_name' => 'invoices',
+            'ip' => request()->ip(),
+            'browser_name' => request()->header('User-Agent'),
+            'platform' => php_uname(),
+            'device' => php_uname(),
+            'page' => request()->fullUrl(),
+        ]);
 
         return redirect()
             ->route('invoice.index')

@@ -71,6 +71,7 @@
                     <th>{{ __('field.invoice_number') }}</th>
                     <th>{{ __('field.tanggal') }}</th>
                     <th>{{ __('field.customer') }}</th>
+                    <th>{{ __('field.penerima') }}</th>
                     <th>{{ __('field.kota_tujuan') }}</th>
                     <th>{{ __('field.total') }}</th>
                     <th style="width: 50px"></th>
@@ -92,6 +93,10 @@
 
                     <td>
                         {{ $item->customer->nama_toko }}
+                    </td>
+
+                    <td>
+                        {{ $item->pengirim }}
                     </td>
 
                     <td>
