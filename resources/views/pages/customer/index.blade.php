@@ -13,6 +13,34 @@
             @endcan
         </div>
     </div>
+    <div class="card-body border-bottom">
+        <form method="GET">
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <input
+                        type="text"
+                        name="q"
+                        value="{{ request('q') }}"
+                        class="form-control"
+                        placeholder="{{ __('button.search') }}...">
+                </div>
+
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100">
+                        {{ __('button.search') }}
+                    </button>
+                </div>
+
+                @if(request('q'))
+                <div class="col-md-2">
+                    <a href="{{ route('customer.index') }}" class="btn btn-secondary w-100">
+                        Reset
+                    </a>
+                </div>
+                @endif
+            </div>
+        </form>
+    </div>
 
     <div class="table-responsive text-nowrap">
         <table class="table">

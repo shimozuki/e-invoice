@@ -15,5 +15,5 @@ return [
     'delete' => 'Delete',
     'edit' => 'Edit',
     'delete_all' => 'Delete All',
-
+    'search' => 'Search'
 ];

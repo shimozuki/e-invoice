@@ -15,15 +15,38 @@ class CustomerController extends Controller
     /**
      * Display a listing of the customers.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Customer::select('id', 'nama_toko', 'kota', 'telepon', 'alamat', 'email', 'nama_pemilik', 'created_at')
+        $query = Customer::select(
+            'id',
+            'nama_toko',
+            'kota',
+            'telepon',
+            'alamat',
+            'email',
+            'nama_pemilik',
+            'created_at'
+        );
+
+        if ($request->filled('q')) {
+            $q = $request->q;
+
+            $query->where(function ($sub) use ($q) {
+                $sub->where('nama_toko', 'like', "%{$q}%")
+                    ->orWhere('kota', 'like', "%{$q}%")
+                    ->orWhere('telepon', 'like', "%{$q}%")
+                    ->orWhere('email', 'like', "%{$q}%")
+                    ->orWhere('nama_pemilik', 'like', "%{$q}%");
+            });
+        }
+
+        $items = $query
             ->orderByDesc('id')
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return view('pages.customer.index', compact('items'));
     }
-
     /**
      * Show the form for creating a new customer.
      */

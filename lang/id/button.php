@@ -16,4 +16,5 @@ return [
     'edit' => 'Edit',
     'delete_all' => 'Hapus Semua',
     'filter' => 'Filter',
+    'search' => 'Cari'
 ];
