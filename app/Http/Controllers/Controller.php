@@ -95,7 +95,7 @@ abstract class Controller
                     ],
                     [
                         'url' => route('account.password.edit'),
-                        'name' => __('menu.change_password'),
+                        'name' => __('menu.delete_account'),
                         'active' => Route::is('account.password.edit'),
                         'available' => true,
                     ],

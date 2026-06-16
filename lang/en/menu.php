@@ -29,6 +29,7 @@ return [
     'account' => 'Account',
     'profile' => 'Profile',
     'change_password' => 'Change Password',
+    'delete_account' => 'Delete Account',
     'activity_log' => 'Activity Log',
     'financial_report' => 'Financial Report',
     'locale' => 'Language'

@@ -29,6 +29,7 @@ return [
     'account' => 'Akun',
     'profile' => 'Profil',
     'change_password' => 'Ubah Password',
+    'delete_account' => 'Hapus Akun',
     'activity_log' => 'Log Aktivitas',
     'financial_report' => 'Laporan Keuangan',
     'locale' => 'Bahasa'
