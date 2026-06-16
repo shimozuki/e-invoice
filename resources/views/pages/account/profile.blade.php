@@ -36,7 +36,6 @@
                     </div>
                     <div class="mt-2">
                         <button type="submit" class="btn btn-primary me-2">{{ __('button.submit') }}</button>
-                        <button type="reset" class="btn btn-outline-secondary">{{ __('button.cancel') }}</button>
                     </div>
                 </form>
             </div>
